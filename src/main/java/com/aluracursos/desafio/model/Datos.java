@@ -1,10 +1,15 @@
 package com.aluracursos.desafio.model;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+// Define el paquete del modelo.
 
-import java.util.List;
-@JsonIgnoreProperties(ignoreUnknown = true)
+import com.fasterxml.jackson.annotation.JsonAlias; // Importa la anotación para mapear nombres de campos.
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties; // Importa la anotación para ignorar campos desconocidos.
 
-public record Datos(@JsonAlias("results")  List<DatosLibros> resultados) {}
+import java.util.List; // Importa la clase para manejar listas.
 
+// Clase que representa los datos generales de la API.
+@JsonIgnoreProperties(ignoreUnknown = true) // Ignora campos no especificados en esta clase.
+public record Datos(
+        @JsonAlias("results") // Mapea el campo "results" del JSON a la propiedad resultados.
+        List<DatosLibros> resultados // Lista de resultados (libros).
+) {}
